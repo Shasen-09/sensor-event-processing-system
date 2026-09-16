@@ -42,10 +42,9 @@ class LinkedList:
     def delete_end(self):
         if self.head is None:
             return
-        while self.head:
-            self.head = self.head.next
-        newhead = self.head - 1
-        self.head = newhead
+        if self.head.next is None:
+            self.head = None
+            self.tail
 
 
 mylist = LinkedList()

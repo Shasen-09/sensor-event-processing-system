@@ -1,14 +1,18 @@
+import os
 import psycopg
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class Database:
     def __init__(self):
         self.connection = psycopg.connect(
-            host="localhost",
-            port=5432,
-            dbname="TRACK",
-            user="postgres",
-            password="shasen"
+            host=os.getenv("DB_HOST"),
+            port=os.getenv("DB_PORT"),
+            dbname=os.getenv("DB_NAME"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD"),
         )
 
     def save_event(self, event):
